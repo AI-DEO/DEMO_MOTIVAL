@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { -webkit-font-smoothing: antialiased; box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  input::placeholder { color: #A6B1BE; }
+</style>
+</helmet>
+
+<div style="display:flex;height:100vh;width:100%;background:#F5F8FB;font-family:Lexend,sans-serif;overflow:hidden;">
+
+  <!-- Sidebar -->
+  <aside style="width:252px;flex:none;background:#fff;border-right:1px solid #E9EEF3;display:flex;flex-direction:column;padding:24px 16px;">
+    <div style="display:flex;align-items:center;gap:11px;padding:0 8px 22px;">
+<a href="Demo%20Motival.dc.html" title="Retour à la démo" style="display:block;flex:none;"><img src="assets/motival-logo.png" alt="Réseau Motival" style="width:44px;height:44px;object-fit:contain;"></a>
+      <div style="line-height:1.1;">
+        <div style="font:600 14px Lexend,sans-serif;color:#1C2A3A;">Motival</div>
+        <div style="font:500 11px Lexend,sans-serif;color:#9AA6B4;">Administration</div>
+      </div>
+    </div>
+    <nav style="display:flex;flex-direction:column;gap:4px;">
+      <a href="Admin%20Tableau%20de%20bord%20Motival.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 13px;border-radius:10px;background:transparent;color:#5A6A7A;font:500 14px Lexend,sans-serif;text-decoration:none;transition:background .15s;" style-hover="background:#F4F8FB;">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Tableau de bord
+      </a>
+      <a href="#" style="display:flex;align-items:center;gap:12px;padding:11px 13px;border-radius:10px;background:rgba(27,95,168,.10);color:#1B5FA8;font:600 14px Lexend,sans-serif;text-decoration:none;">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.1"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><path d="M16.2 6.4a3 3 0 0 1 0 5.8"/><path d="M17 13.4a5.5 5.5 0 0 1 3.5 5.1"/></svg>Apprenants
+      </a>
+    </nav>
+    <div style="margin-top:auto;padding:14px;border-radius:12px;background:#F4F8FB;border:1px solid #E9EEF3;">
+      <div style="font:600 12.5px Lexend,sans-serif;color:#1C2A3A;margin-bottom:4px;">Réseau Motival</div>
+      <div style="font:400 11.5px/1.5 Lexend,sans-serif;color:#8A97A6;">Les consultants du monde agricole</div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main style="flex:1;display:flex;flex-direction:column;overflow:hidden;">
+    <header style="height:74px;flex:none;background:#fff;border-bottom:1px solid #E9EEF3;display:flex;align-items:center;justify-content:space-between;padding:0 32px;">
+      <h1 style="font:600 21px Lexend,sans-serif;color:#1C2A3A;margin:0;letter-spacing:-.01em;">Apprenants</h1>
+      <div style="display:flex;align-items:center;gap:11px;">
+        <div style="text-align:right;line-height:1.2;">
+          <div style="font:600 13.5px Lexend,sans-serif;color:#1C2A3A;">Sophie Renaud</div>
+          <div style="font:500 11.5px Lexend,sans-serif;color:#9AA6B4;">Administratrice</div>
+        </div>
+        <div style="width:40px;height:40px;border-radius:50%;background:rgba(27,95,168,.12);display:grid;place-items:center;font:600 15px Lexend,sans-serif;color:#1B5FA8;">SR</div>
+      </div>
+    </header>
+
+    <div style="flex:1;overflow:auto;padding:28px 32px;">
+
+      <!-- Toolbar -->
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;">
+        <div style="position:relative;flex:1;max-width:420px;">
+          <span style="position:absolute;top:50%;left:15px;transform:translateY(-50%);display:grid;place-items:center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8A97A6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+          </span>
+          <input type="text" placeholder="Rechercher un apprenant, un email…" style="width:100%;height:46px;border:1px solid #E3E8EE;background:#fff;border-radius:11px;padding:0 15px 0 42px;font:14.5px Lexend,sans-serif;color:#1C2A3A;outline:none;transition:border-color .15s,box-shadow .15s;" style-focus="border-color:#1B5FA8;box-shadow:0 0 0 4px rgba(27,95,168,.10);">
+        </div>
+        <select style="height:46px;border:1px solid #E3E8EE;background:#fff;border-radius:11px;padding:0 38px 0 15px;font:500 14px Lexend,sans-serif;color:#46566A;outline:none;cursor:pointer;appearance:none;background-image:url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;16&quot; height=&quot;16&quot; fill=&quot;none&quot; stroke=&quot;%238A97A6&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><path d=&quot;M6 9l6 6 6-6&quot;/></svg>');background-repeat:no-repeat;background-position:right 13px center;">
+          <option>Tous les espaces</option>
+          <option>Formations managériales</option>
+          <option>Formations technico-commerciales</option>
+        </select>
+      </div>
+
+      <!-- Table -->
+      <div style="background:#fff;border:1px solid #E9EEF3;border-radius:16px;">
+        <div style="display:grid;grid-template-columns:1.6fr 2fr 1.2fr 44px;gap:16px;padding:14px 22px;border-bottom:1px solid #EEF2F6;font:600 11.5px Lexend,sans-serif;color:#9AA6B4;letter-spacing:.04em;text-transform:uppercase;">
+          <div>Prénom &amp; nom</div>
+          <div>Email</div>
+          <div>Accès</div>
+          <div></div>
+        </div>
+
+        <sc-for list="{{ rows }}" as="row" hint-placeholder-count="8">
+          <div onClick="{{ row.select }}" style="display:grid;grid-template-columns:1.6fr 2fr 1.2fr 44px;gap:16px;padding:15px 22px;border-bottom:1px solid #F1F4F7;align-items:center;position:relative;cursor:pointer;background:{{ row.bg }};transition:background .12s;">
+            <div style="font:600 14px Lexend,sans-serif;color:#1C2A3A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ row.name }}</div>
+            <div style="font:400 13.5px Lexend,sans-serif;color:#6A7888;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ row.email }}</div>
+            <div>{{ row.accessEl }}</div>
+            <div style="position:relative;display:flex;justify-content:flex-end;">
+              <button type="button" onClick="{{ row.toggle }}" style="width:34px;height:34px;border-radius:9px;border:1px solid transparent;background:transparent;display:grid;place-items:center;cursor:pointer;color:#8A97A6;transition:background .15s;" style-hover="background:#F1F4F7;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="12" cy="19" r="1.7"/></svg>
+              </button>
+              <sc-if value="{{ row.menuOpen }}" hint-placeholder-val="{{ false }}">
+                <div style="position:absolute;top:40px;right:0;width:210px;background:#fff;border:1px solid #E7EDF3;border-radius:12px;box-shadow:0 16px 36px -16px rgba(20,50,90,.35);padding:6px;z-index:20;">
+                  <button type="button" style="width:100%;text-align:left;display:flex;align-items:center;gap:10px;padding:10px 11px;border:none;border-radius:8px;background:transparent;font:500 13.5px Lexend,sans-serif;color:#3F5266;cursor:pointer;" style-hover="background:#F4F8FB;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5A6A7A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/></svg>Renvoyer l'accès
+                  </button>
+                  <button type="button" style="width:100%;text-align:left;display:flex;align-items:center;gap:10px;padding:10px 11px;border:none;border-radius:8px;background:transparent;font:500 13.5px Lexend,sans-serif;color:#3F5266;cursor:pointer;" style-hover="background:#F4F8FB;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5A6A7A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>Modifier
+                  </button>
+                  <div style="height:1px;background:#F1F4F7;margin:5px 8px;"></div>
+                  <button type="button" style="width:100%;text-align:left;display:flex;align-items:center;gap:10px;padding:10px 11px;border:none;border-radius:8px;background:transparent;font:500 13.5px Lexend,sans-serif;color:#C0394B;cursor:pointer;" style-hover="background:#FCF2F3;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C0394B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg>Désactiver le compte
+                  </button>
+                </div>
+              </sc-if>
+            </div>
+          </div>
+        </sc-for>
+
+      </div>
+
+      <div style="margin-top:24px;background:#fff;border:1px solid #E9EEF3;border-radius:16px;padding:22px 24px;">
+        <h3 style="font:600 16px Lexend,sans-serif;color:#1C2A3A;margin:0;">Accès aux supports · {{ selectedName }}</h3>
+        <p style="font:400 13.5px Lexend,sans-serif;color:#8A97A6;margin:4px 0 16px;">Sélectionnez un apprenant dans le tableau, puis cochez les supports auxquels il peut accéder.</p>
+        <div style="border:1px solid #EEF2F6;border-radius:12px;overflow:hidden;opacity:{{ panelOpacity }};pointer-events:{{ panelPe }};transition:opacity .15s;">
+          <sc-for list="{{ supports }}" as="s" hint-placeholder-count="6">
+            <div onClick="{{ s.toggle }}" style="display:flex;align-items:center;gap:13px;padding:13px 16px;border-bottom:1px solid #F1F4F7;cursor:pointer;transition:background .12s;" style-hover="background:#F8FAFC;">
+              {{ s.checkEl }}
+              <div style="flex:1;min-width:0;font:600 14px Lexend,sans-serif;color:#1C2A3A;">{{ s.title }}</div>
+              <span style="font:500 12px Lexend,sans-serif;color:#8A97A6;flex:none;">{{ s.space }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { openMenu: null, selected: 0, access: {}, granted: {} };
+
+  supportsData = [
+    { id: 'decouverte', title: 'La découverte client', space: 'Technico-commerciales' },
+    { id: 'objections', title: 'Traiter les objections', space: 'Technico-commerciales' },
+    { id: 'proposition', title: 'Construire une proposition de valeur', space: 'Technico-commerciales' },
+    { id: 'entretien', title: "Préparer un entretien annuel d'évaluation", space: 'Managériales' },
+    { id: 'reunion', title: "Animer une réunion d'équipe efficace", space: 'Managériales' },
+    { id: 'fidelisation', title: 'Le suivi et la fidélisation client', space: 'Technico-commerciales' },
+  ];
+
+  select(i) { this.setState({ selected: i }); }
+  toggleAccess(i, e) { this.setState(s => ({ granted: { ...s.granted, [i]: !s.granted[i] }, selected: i })); }
+  toggleSupport(id) {
+    const i = this.state.selected;
+    this.setState(s => {
+      const cur = s.access[i] || {};
+      return { access: { ...s.access, [i]: { ...cur, [id]: !cur[id] } } };
+    });
+  }
+
+  data = [
+    { name: 'Camille Besson', email: 'camille.besson@coopagora.fr', spaces: 'Technico-commerciales', status: 'sent', date: '12 juin 2026' },
+    { name: 'Marc Lefèvre', email: 'marc.lefevre@axereal.com', spaces: 'Managériales', status: 'sent', date: '12 juin 2026' },
+    { name: 'Julie Hamon', email: 'julie.hamon@terrena.fr', spaces: 'Managériales, Technico-com.', status: 'pending', date: '14 juin 2026' },
+    { name: 'Thomas Girard', email: 'thomas.girard@euralis.fr', spaces: 'Technico-commerciales', status: 'error', date: '14 juin 2026' },
+    { name: 'Sarah Mercier', email: 'sarah.mercier@noriap.com', spaces: 'Managériales', status: 'sent', date: '10 juin 2026' },
+    { name: 'Antoine Roux', email: 'antoine.roux@natup.coop', spaces: 'Technico-commerciales', status: 'pending', date: '15 juin 2026' },
+    { name: 'Léa Fontaine', email: 'lea.fontaine@ocealia-groupe.fr', spaces: 'Managériales, Technico-com.', status: 'sent', date: '9 juin 2026' },
+    { name: 'Hugo Morel', email: 'hugo.morel@dijon-cereales.fr', spaces: 'Technico-commerciales', status: 'sent', date: '8 juin 2026' },
+  ];
+
+  meta = {
+    sent: { label: 'Accès envoyé', color: '#4E8A2C', bg: 'rgba(109,179,63,.15)', dot: '#6DB33F' },
+    pending: { label: 'En attente', color: '#946312', bg: 'rgba(224,165,46,.16)', dot: '#E0A52E' },
+    error: { label: "Erreur d'envoi", color: '#B23A4B', bg: 'rgba(209,73,91,.14)', dot: '#D1495B' },
+  };
+
+  componentDidMount() {
+    this._close = () => { if (this.state.openMenu !== null) this.setState({ openMenu: null }); };
+    document.addEventListener('click', this._close);
+  }
+  componentWillUnmount() { if (this._close) document.removeEventListener('click', this._close); }
+
+  toggleMenu(i, e) {
+    if (e) { e.stopPropagation(); if (e.nativeEvent) e.nativeEvent.stopPropagation(); }
+    this.setState(s => ({ openMenu: s.openMenu === i ? null : i }));
+  }
+
+  renderVals() {
+    const h = React.createElement;
+    const rows = this.data.map((d, i) => {
+      const m = this.meta[d.status];
+      const statusEl = h('span', { style: { display: 'inline-flex', alignItems: 'center', gap: '7px', padding: '5px 11px', borderRadius: '999px', background: m.bg, font: '600 12.5px Lexend,sans-serif', color: m.color, whiteSpace: 'nowrap' } },
+        h('span', { key: 'd', style: { width: '7px', height: '7px', borderRadius: '50%', background: m.dot, flex: 'none' } }), m.label);
+      const granted = !!this.state.granted[i];
+      const accessEl = h('span', { onClick: (e) => this.toggleAccess(i, e), style: { width: '22px', height: '22px', display: 'grid', placeItems: 'center', borderRadius: '6px', cursor: 'pointer', border: granted ? '1px solid #1B5FA8' : '1px solid #CDD6DF', background: granted ? '#1B5FA8' : '#fff', transition: 'all .12s' } }, granted ? h('svg', { width: 13, height: 13, viewBox: '0 0 24 24', fill: 'none', stroke: '#fff', strokeWidth: 3, strokeLinecap: 'round', strokeLinejoin: 'round' }, h('path', { d: 'M5 12l5 5 9-11' })) : null);
+      return { name: d.name, email: d.email, accessEl, menuOpen: this.state.openMenu === i, toggle: (e) => this.toggleMenu(i, e), select: () => this.select(i), bg: this.state.selected === i ? 'rgba(27,95,168,.06)' : 'transparent' };
+    });
+    const supports = this.supportsData.map(s => {
+      const acc = this.state.access[this.state.selected] || {};
+      const checked = !!acc[s.id];
+      const checkEl = h('span', { style: { width: '22px', height: '22px', flex: 'none', borderRadius: '6px', display: 'grid', placeItems: 'center', border: checked ? '1px solid #1B5FA8' : '1px solid #CDD6DF', background: checked ? '#1B5FA8' : '#fff', transition: 'all .12s' } },
+        checked ? h('svg', { width: 13, height: 13, viewBox: '0 0 24 24', fill: 'none', stroke: '#fff', strokeWidth: 3, strokeLinecap: 'round', strokeLinejoin: 'round' }, h('path', { d: 'M5 12l5 5 9-11' })) : null);
+      return { title: s.title, space: s.space, checked, checkEl, toggle: () => this.toggleSupport(s.id) };
+    });
+    const selectedName = this.data[this.state.selected].name;
+    const grantedSel = !!this.state.granted[this.state.selected];
+    return { rows, supports, selectedName, panelOpacity: grantedSel ? '1' : '.4', panelPe: grantedSel ? 'auto' : 'none' };
+  }
+}
+</script>
+</body>
+</html>

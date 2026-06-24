@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { -webkit-font-smoothing: antialiased; }
+  input::placeholder { color: #A6B1BE; }
+  a:hover { text-decoration: underline !important; }
+</style>
+</helmet>
+
+<div data-drags-parent="0" style="position:absolute;left:80px;top:44px;font:600 22px/1.3 Lexend,sans-serif;color:#1C2A3A;letter-spacing:-.01em;">Espace apprenant Motival<span style="display:block;font:400 14px Lexend,sans-serif;color:#7C8A99;margin-top:4px;">Écran de connexion · 2 variations · mobile d'abord, puis desktop</span></div>
+
+<div style="position:absolute;left:1000px;top:150px;width:300px;background:#FEF4A8;padding:16px 18px;font:13px/1.5 Lexend,sans-serif;color:#5A5430;box-shadow:0 1px 3px rgba(0,0,0,.08);transform:rotate(-1deg);border-radius:2px;">
+  <strong>Système</strong><br>
+  Surfaces claires · beaucoup d'air · angles arrondis doux · style plat, sans dégradé ni ombre lourde. Bleu #1B5FA8 (principal), vert #6DB33F (accent). Typo&nbsp;: Lexend.<br><br>
+  <strong>A</strong> — pleine surface claire, ultra-minimal.<br>
+  <strong>B</strong> — touche de couleur de marque en aplat.
+</div>
+
+<div data-drags-parent="0" style="position:absolute;left:80px;top:112px;font:500 13px Lexend,sans-serif;color:#9AA6B4;letter-spacing:.04em;text-transform:uppercase;">Mobile</div>
+
+<!-- ===================== MOBILE A — ultra-minimal ===================== -->
+<div style="position:absolute;left:80px;top:150px;width:390px;">
+  <div data-drags-parent="1" style="position:absolute;top:-26px;left:2px;font:500 12px Lexend,sans-serif;color:#7C8A99;">Variante A · clair, minimal</div>
+  <div style="width:390px;height:844px;background:#fff;border-radius:46px;border:1px solid #E6EBF0;box-shadow:0 2px 8px rgba(20,40,70,.05);overflow:hidden;position:relative;display:flex;flex-direction:column;">
+    <div style="height:52px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 30px 0 34px;">
+      <span style="font:600 15px Lexend,sans-serif;color:#1C2A3A;">9:41</span>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div style="display:flex;align-items:flex-end;gap:2px;height:11px;"><span style="width:3px;height:5px;background:#1C2A3A;border-radius:1px;"></span><span style="width:3px;height:7px;background:#1C2A3A;border-radius:1px;"></span><span style="width:3px;height:9px;background:#1C2A3A;border-radius:1px;"></span><span style="width:3px;height:11px;background:#1C2A3A;border-radius:1px;"></span></div>
+        <div style="width:23px;height:11px;border:1.5px solid #1C2A3A;border-radius:3px;padding:1.5px;display:flex;box-sizing:border-box;"><div style="flex:1;background:#1C2A3A;border-radius:1px;"></div></div>
+      </div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;padding:30px 32px 28px;">
+      <img src="assets/motival-logo.png" alt="Réseau Motival" style="width:118px;height:118px;object-fit:contain;display:block;margin:22px auto 26px;">
+      <div style="text-align:center;margin-bottom:30px;">
+        <h1 style="font:600 25px/1.25 Lexend,sans-serif;color:#1C2A3A;letter-spacing:-.01em;margin:0;">Ravi de vous revoir</h1>
+        <p style="font:400 15px/1.55 Lexend,sans-serif;color:#6A7888;margin:9px 0 0;">Connectez-vous pour accéder à vos formations.</p>
+      </div>
+      <form onSubmit="{{ onSubmit }}" style="display:flex;flex-direction:column;gap:16px;">
+        <div>
+          <label style="display:block;font:500 13px/1 Lexend,sans-serif;color:#6A7888;margin-bottom:9px;letter-spacing:.01em;">Identifiant</label>
+          <input type="text" placeholder="prenom.nom" style="width:100%;height:52px;border:1px solid #E3E8EE;background:#F4F7FA;border-radius:12px;padding:0 15px;font:16px/1.2 Lexend,sans-serif;color:#1C2A3A;outline:none;box-sizing:border-box;transition:border-color .15s,background .15s,box-shadow .15s;" style-focus="border-color:#1B5FA8;background:#fff;box-shadow:0 0 0 4px rgba(27,95,168,.10);">
+        </div>
+        <div>
+          <label style="display:block;font:500 13px/1 Lexend,sans-serif;color:#6A7888;margin-bottom:9px;letter-spacing:.01em;">Mot de passe</label>
+          <div style="position:relative;">
+            <input type="{{ typeA }}" placeholder="Votre mot de passe" style="width:100%;height:52px;border:1px solid #E3E8EE;background:#F4F7FA;border-radius:12px;padding:0 92px 0 15px;font:16px/1.2 Lexend,sans-serif;color:#1C2A3A;outline:none;box-sizing:border-box;transition:border-color .15s,background .15s,box-shadow .15s;" style-focus="border-color:#1B5FA8;background:#fff;box-shadow:0 0 0 4px rgba(27,95,168,.10);">
+            <button type="button" onClick="{{ togA }}" style="position:absolute;top:50%;right:11px;transform:translateY(-50%);background:none;border:none;padding:6px;font:600 12.5px Lexend,sans-serif;color:#1B5FA8;cursor:pointer;">{{ labA }}</button>
+          </div>
+          <div style="display:flex;justify-content:flex-end;margin-top:11px;">
+            <a href="#" style="font:500 13px Lexend,sans-serif;color:#1B5FA8;text-decoration:none;">Mot de passe oublié ?</a>
+          </div>
+        </div>
+        <button type="submit" style="width:100%;height:54px;border:none;border-radius:12px;background:#1B5FA8;color:#fff;font:600 16px/1 Lexend,sans-serif;letter-spacing:.01em;cursor:pointer;box-shadow:0 10px 22px -12px rgba(27,95,168,.7);transition:background .15s;margin-top:4px;" style-hover="background:#164E8C;">Se connecter</button>
+      </form>
+      <div style="margin-top:auto;display:flex;align-items:center;justify-content:center;gap:7px;">
+        <span style="width:7px;height:7px;border-radius:50%;background:#6DB33F;display:block;"></span>
+        <span style="font:500 12.5px Lexend,sans-serif;color:#8A97A6;">Connexion sécurisée</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== MOBILE B — aplat de marque ===================== -->
+<div style="position:absolute;left:540px;top:150px;width:390px;">
+  <div data-drags-parent="1" style="position:absolute;top:-26px;left:2px;font:500 12px Lexend,sans-serif;color:#7C8A99;">Variante B · aplat de marque</div>
+  <div style="width:390px;height:844px;background:#fff;border-radius:46px;border:1px solid #E6EBF0;box-shadow:0 2px 8px rgba(20,40,70,.05);overflow:hidden;position:relative;display:flex;flex-direction:column;">
+    <div style="background:#1B5FA8;flex:none;padding:0 0 36px;">
+      <div style="height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 30px 0 34px;">
+        <span style="font:600 15px Lexend,sans-serif;color:#fff;">9:41</span>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div style="display:flex;align-items:flex-end;gap:2px;height:11px;"><span style="width:3px;height:5px;background:#fff;border-radius:1px;"></span><span style="width:3px;height:7px;background:#fff;border-radius:1px;"></span><span style="width:3px;height:9px;background:#fff;border-radius:1px;"></span><span style="width:3px;height:11px;background:#fff;border-radius:1px;"></span></div>
+          <div style="width:23px;height:11px;border:1.5px solid #fff;border-radius:3px;padding:1.5px;display:flex;box-sizing:border-box;"><div style="flex:1;background:#fff;border-radius:1px;"></div></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:18px 34px 0;">
+        <div style="width:88px;height:88px;background:#fff;border-radius:24px;display:grid;place-items:center;box-shadow:0 14px 30px -14px rgba(0,0,0,.4);margin-bottom:22px;">
+          <img src="assets/motival-logo.png" alt="Réseau Motival" style="width:64px;height:64px;object-fit:contain;">
+        </div>
+        <h1 style="font:600 26px/1.2 Lexend,sans-serif;color:#fff;letter-spacing:-.01em;margin:0;">Bienvenue</h1>
+        <p style="font:400 15px/1.55 Lexend,sans-serif;color:rgba(255,255,255,.85);margin:9px 0 0;max-width:280px;">Vos formations et votre compagnon IA vous attendent.</p>
+      </div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;padding:32px;">
+      <form onSubmit="{{ onSubmit }}" style="display:flex;flex-direction:column;gap:16px;">
+        <div>
+          <label style="display:block;font:500 13px/1 Lexend,sans-serif;color:#6A7888;margin-bottom:9px;letter-spacing:.01em;">Identifiant</label>
+          <input type="text" placeholder="prenom.nom" style="width:100%;height:52px;border:1px solid #E3E8EE;background:#F4F7FA;border-radius:12px;padding:0 15px;font:16px/1.2 Lexend,sans-serif;color:#1C2A3A;outline:none;box-sizing:border-box;transition:border-color .15s,background .15s,box-shadow .15s;" style-focus="border-color:#1B5FA8;background:#fff;box-shadow:0 0 0 4px rgba(27,95,168,.10);">
+        </div>
+        <div>
+          <label style="display:block;font:500 13px/1 Lexend,sans-serif;color:#6A7888;margin-bottom:9px;letter-spacing:.01em;">Mot de passe</label>
+          <div style="position:relative;">
+            <input type="{{ typeB }}" placeholder="Votre mot de passe" style="width:100%;height:52px;border:1px solid #E3E8EE;background:#F4F7FA;border-radius:12px;padding:0 92px 0 15px;font:16px/1.2 Lexend,sans-serif;color:#1C2A3A;outline:none;box-sizing:border-box;transition:border-color .15s,background .15s,box-shadow .15s;" style-focus="border-color:#1B5FA8;background:#fff;box-shadow:0 0 0 4px rgba(27,95,168,.10);">
+            <button type="button" onClick="{{ togB }}" style="position:absolute;top:50%;right:11px;transform:translateY(-50%);background:none;border:none;padding:6px;font:600 12.5px Lexend,sans-serif;color:#1B5FA8;cursor:pointer;">{{ labB }}</button>
+          </div>
+          <div style="display:flex;justify-content:flex-end;margin-top:11px;">
+            <a href="#" style="font:500 13px Lexend,sans-serif;color:#1B5FA8;text-decoration:none;">Mot de passe oublié ?</a>
+          </div>
+        </div>
+        <button type="submit" style="width:100%;height:54px;border:none;border-radius:12px;background:#6DB33F;color:#fff;font:600 16px/1 Lexend,sans-serif;letter-spacing:.01em;cursor:pointer;box-shadow:0 10px 22px -12px rgba(109,179,63,.7);transition:background .15s;margin-top:4px;" style-hover="background:#5C9A33;">Se connecter</button>
+      </form>
+      <div style="margin-top:auto;display:flex;align-items:center;justify-content:center;gap:7px;">
+        <span style="width:7px;height:7px;border-radius:50%;background:#6DB33F;display:block;"></span>
+        <span style="font:500 12.5px Lexend,sans-serif;color:#8A97A6;">Connexion sécurisée</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div data-drags-parent="0" style="position:absolute;left:80px;top:1092px;font:500 13px Lexend,sans-serif;color:#9AA6B4;letter-spacing:.04em;text-transform:uppercase;">Desktop — adaptation</div>
+
+<!-- ===================== DESKTOP A — ultra-minimal ===================== -->
+<div style="position:absolute;left:80px;top:1130px;width:1180px;">
+  <div data-drags-parent="1" style="position:absolute;top:-26px;left:2px;font:500 12px Lexend,sans-serif;color:#7C8A99;">Variante A · desktop</div>
+  <div style="width:1180px;height:720px;background:#FBFCFD;border-radius:24px;border:1px solid #E9EEF3;box-shadow:0 2px 8px rgba(20,40,70,.05);overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;">
+    <div style="width:380px;display:flex;flex-direction:column;align-items:center;text-align:center;">
+      <img src="assets/motival-logo.png" alt="Réseau Motival" style="width:112px;height:112px;object-fit:contain;margin-bottom:24px;">
+      <h1 style="font:600 27px/1.2 Lexend,sans-serif;color:#1C2A3A;letter-spacing:-.01em;margin:0;">Ravi de vous revoir</h1>
+      <p style="font:400 15px/1.55 Lexend,sans-serif;color:#6A7888;margin:9px 0 30px;">Connectez-vous pour accéder à vos formations.</p>
+      <form onSubmit="{{ onSubmit }}" style="width:100%;text-align:left;display:flex;flex-direction:column;gap:16px;">
+        <div>
+          <label style="display:block;font:500 13px/1 Lexend,sans-serif;color:#6A7888;margin-bottom:9px;letter-spacing:.01em;">Identifiant</label>
+          <input type="text" placeholder="prenom.nom" style="width:100%;height:52px;border:1px solid #E3E8EE;background:#fff;border-radius:12px;padding:0 15px;font:16px/1.2 Lexend,sans-serif;color:#1C2A3A;outline:none;box-sizing:border-box;transition:border-color .15s,box-shadow .15s;" style-focus="border-color:#1B5FA8;box-shadow:0 0 0 4px rgba(27,95,168,.10);">
+        </div>
+        <div>
+          <label style="display:block;font:500 13px/1 Lexend,sans-serif;color:#6A7888;margin-bottom:9px;letter-spacing:.01em;">Mot de passe</label>
+          <div style="position:relative;">
+            <input type="{{ typeDA }}" placeholder="Votre mot de passe" style="width:100%;height:52px;border:1px solid #E3E8EE;background:#fff;border-radius:12px;padding:0 92px 0 15px;font:16px/1.2 Lexend,sans-serif;color:#1C2A3A;outline:none;box-sizing:border-box;transition:border-color .15s,box-shadow .15s;" style-focus="border-color:#1B5FA8;box-shadow:0 0 0 4px rgba(27,95,168,.10);">
+            <button type="button" onClick="{{ togDA }}" style="position:absolute;top:50%;right:11px;transform:translateY(-50%);background:none;border:none;padding:6px;font:600 12.5px Lexend,sans-serif;color:#1B5FA8;cursor:pointer;">{{ labDA }}</button>
+          </div>
+          <div style="display:flex;justify-content:flex-end;margin-top:11px;">
+            <a href="#" style="font:500 13px Lexend,sans-serif;color:#1B5FA8;text-decoration:none;">Mot de passe oublié ?</a>
+          </div>
+        </div>
+        <button type="submit" style="width:100%;height:54px;border:none;border-radius:12px;background:#1B5FA8;color:#fff;font:600 16px/1 Lexend,sans-serif;letter-spacing:.01em;cursor:pointer;box-shadow:0 10px 22px -12px rgba(27,95,168,.7);transition:background .15s;margin-top:4px;" style-hover="background:#164E8C;">Se connecter</button>
+      </form>
+      <div style="margin-top:26px;display:flex;align-items:center;justify-content:center;gap:7px;">
+        <span style="width:7px;height:7px;border-radius:50%;background:#6DB33F;display:block;"></span>
+        <span style="font:500 12.5px Lexend,sans-serif;color:#8A97A6;">Connexion sécurisée</span>
+      </div>
+    </div>
+    <div style="position:absolute;bottom:28px;left:0;right:0;text-align:center;font:500 12.5px Lexend,sans-serif;color:#9AA6B4;">Les consultants du monde agricole</div>
+  </div>
+</div>
+
+<!-- ===================== DESKTOP B — aplat split ===================== -->
+<div style="position:absolute;left:1340px;top:1130px;width:1180px;">
+  <div data-drags-parent="1" style="position:absolute;top:-26px;left:2px;font:500 12px Lexend,sans-serif;color:#7C8A99;">Variante B · desktop</div>
+  <div style="width:1180px;height:720px;background:#fff;border-radius:24px;border:1px solid #E9EEF3;box-shadow:0 2px 8px rgba(20,40,70,.05);overflow:hidden;display:flex;">
+    <div style="position:relative;overflow:hidden;width:520px;flex:none;background:#1B5FA8;padding:56px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;">
+      <div style="position:absolute;width:440px;height:440px;border-radius:50%;background:rgba(255,255,255,.06);right:-150px;bottom:-170px;"></div>
+      <div style="position:relative;width:74px;height:74px;background:#fff;border-radius:20px;display:grid;place-items:center;box-shadow:0 14px 30px -14px rgba(0,0,0,.4);">
+        <img src="assets/motival-logo.png" alt="Réseau Motival" style="width:54px;height:54px;object-fit:contain;">
+      </div>
+      <div style="position:relative;">
+        <h2 style="font:600 33px/1.25 Lexend,sans-serif;color:#fff;letter-spacing:-.01em;margin:0;">Votre espace apprenant</h2>
+        <p style="font:400 16px/1.6 Lexend,sans-serif;color:rgba(255,255,255,.82);margin:14px 0 0;max-width:360px;">Vos supports de formation et votre compagnon IA, réunis en un seul endroit.</p>
+      </div>
+      <div style="position:relative;font:500 13px Lexend,sans-serif;color:rgba(255,255,255,.66);">Les consultants du monde agricole</div>
+    </div>
+    <div style="flex:1;background:#fff;display:flex;align-items:center;justify-content:center;padding:56px;box-sizing:border-box;">
+      <div style="width:360px;">
+        <h1 style="font:600 28px/1.2 Lexend,sans-serif;color:#1C2A3A;letter-spacing:-.01em;margin:0;">Connexion</h1>
+        <p style="font:400 15px/1.55 Lexend,sans-serif;color:#6A7888;margin:9px 0 28px;">Saisissez vos identifiants pour continuer.</p>
+        <form onSubmit="{{ onSubmit }}" style="display:flex;flex-direction:column;gap:16px;">
+          <div>
+            <label style="display:block;font:500 13px/1 Lexend,sans-serif;color:#6A7888;margin-bottom:9px;letter-spacing:.01em;">Identifiant</label>
+            <input type="text" placeholder="prenom.nom" style="width:100%;height:52px;border:1px solid #E3E8EE;background:#F4F7FA;border-radius:12px;padding:0 15px;font:16px/1.2 Lexend,sans-serif;color:#1C2A3A;outline:none;box-sizing:border-box;transition:border-color .15s,background .15s,box-shadow .15s;" style-focus="border-color:#1B5FA8;background:#fff;box-shadow:0 0 0 4px rgba(27,95,168,.10);">
+          </div>
+          <div>
+            <label style="display:block;font:500 13px/1 Lexend,sans-serif;color:#6A7888;margin-bottom:9px;letter-spacing:.01em;">Mot de passe</label>
+            <div style="position:relative;">
+              <input type="{{ typeDB }}" placeholder="Votre mot de passe" style="width:100%;height:52px;border:1px solid #E3E8EE;background:#F4F7FA;border-radius:12px;padding:0 92px 0 15px;font:16px/1.2 Lexend,sans-serif;color:#1C2A3A;outline:none;box-sizing:border-box;transition:border-color .15s,background .15s,box-shadow .15s;" style-focus="border-color:#1B5FA8;background:#fff;box-shadow:0 0 0 4px rgba(27,95,168,.10);">
+              <button type="button" onClick="{{ togDB }}" style="position:absolute;top:50%;right:11px;transform:translateY(-50%);background:none;border:none;padding:6px;font:600 12.5px Lexend,sans-serif;color:#1B5FA8;cursor:pointer;">{{ labDB }}</button>
+            </div>
+            <div style="display:flex;justify-content:flex-end;margin-top:11px;">
+              <a href="#" style="font:500 13px Lexend,sans-serif;color:#1B5FA8;text-decoration:none;">Mot de passe oublié ?</a>
+            </div>
+          </div>
+          <button type="submit" style="width:100%;height:54px;border:none;border-radius:12px;background:#1B5FA8;color:#fff;font:600 16px/1 Lexend,sans-serif;letter-spacing:.01em;cursor:pointer;box-shadow:0 10px 22px -12px rgba(27,95,168,.7);transition:background .15s;margin-top:4px;" style-hover="background:#164E8C;">Se connecter</button>
+        </form>
+        <div style="margin-top:24px;display:flex;align-items:center;gap:7px;">
+          <span style="width:7px;height:7px;border-radius:50%;background:#6DB33F;display:block;"></span>
+          <span style="font:500 12.5px Lexend,sans-serif;color:#8A97A6;">Connexion sécurisée</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { show: { a: false, b: false, da: false, db: false } };
+  tog(k) { this.setState(s => ({ show: { ...s.show, [k]: !s.show[k] } })); }
+  renderVals() {
+    const sh = this.state.show;
+    const t = v => v ? 'text' : 'password';
+    const lab = v => v ? 'Masquer' : 'Afficher';
+    return {
+      typeA: t(sh.a), typeB: t(sh.b), typeDA: t(sh.da), typeDB: t(sh.db),
+      labA: lab(sh.a), labB: lab(sh.b), labDA: lab(sh.da), labDB: lab(sh.db),
+      togA: () => this.tog('a'), togB: () => this.tog('b'),
+      togDA: () => this.tog('da'), togDB: () => this.tog('db'),
+      onSubmit: (e) => { e.preventDefault(); window.location.href = 'Accueil%20Motival.dc.html'; },
+    };
+  }
+}
+</script>
+</body>
+</html>

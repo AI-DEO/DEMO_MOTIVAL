@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { -webkit-font-smoothing: antialiased; }
+  @keyframes leafNext { from { transform: rotateY(0deg); } to { transform: rotateY(-178deg); } }
+  @keyframes leafPrev { from { transform: rotateY(0deg); } to { transform: rotateY(178deg); } }
+</style>
+</helmet>
+
+<div data-drags-parent="0" style="position:absolute;left:80px;top:44px;font:600 22px/1.3 Lexend,sans-serif;color:#1C2A3A;letter-spacing:-.01em;">Consultation d'un support · visionneuse flipbook<span style="display:block;font:400 14px Lexend,sans-serif;color:#7C8A99;margin-top:4px;">Lecture intégrée · feuilletage fluide · variante B · desktop + mobile</span></div>
+
+<!-- ===================== DESKTOP ===================== -->
+<div style="position:absolute;left:80px;top:130px;width:760px;">
+  <div data-drags-parent="1" style="position:absolute;top:-26px;left:2px;font:500 12px Lexend,sans-serif;color:#7C8A99;">Desktop</div>
+  <div style="width:760px;background:#fff;border-radius:24px;border:1px solid #E9EEF3;box-shadow:0 2px 8px rgba(20,40,70,.05);overflow:hidden;">
+
+    <div style="padding:22px 28px 18px;border-bottom:1px solid #EEF2F6;">
+      <div style="display:flex;align-items:center;gap:8px;font:500 12.5px Lexend,sans-serif;color:#8A97A6;margin-bottom:10px;">
+        <a href="Espace%20Technico-commerciales%20Motival.dc.html" style="color:#8A97A6;text-decoration:none;">Formations technico-commerciales</a>
+        <span style="color:#BBC6D0;">›</span>
+        <span style="color:#1B5FA8;font-weight:600;">La découverte client</span>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;">
+        <h1 style="font:600 21px/1.3 Lexend,sans-serif;color:#1C2A3A;margin:0;letter-spacing:-.01em;">La découverte client</h1>
+        <div style="display:flex;align-items:center;gap:10px;flex:none;">
+          <a href="Accueil%20Motival.dc.html" title="Fermer" style="flex:none;width:42px;height:42px;border-radius:11px;border:1px solid #E3E8EE;background:#fff;display:grid;place-items:center;text-decoration:none;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#5A6A7A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12"/><path d="M18 6 6 18"/></svg></a>
+          <button type="button" onClick="{{ fullDesk }}" title="Plein écran" style="width:42px;height:42px;border-radius:11px;border:1px solid #E3E8EE;background:#fff;display:grid;place-items:center;cursor:pointer;transition:background .15s;" style-hover="background:#F4F8FB;">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#5A6A7A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M16 3h3a2 2 0 0 1 2 2v3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/><path d="M8 21H5a2 2 0 0 1-2-2v-3"/></svg>
+          </button>
+          <button type="button" style="height:42px;padding:0 18px;border-radius:11px;border:none;background:#1B5FA8;color:#fff;font:600 14px Lexend,sans-serif;cursor:pointer;display:flex;align-items:center;gap:8px;transition:background .15s;" style-hover="background:#164E8C;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M5 21h14"/></svg>Télécharger
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div ref="{{ deskStage }}" style="position:relative;background:#ECF1F6;height:660px;display:flex;align-items:center;justify-content:center;">
+      <div style="perspective:1800px;">
+        <div style="position:relative;width:452px;height:600px;">
+          <div style="position:absolute;inset:0;">{{ baseEl }}</div>
+          <sc-if value="{{ isFlipping }}" hint-placeholder-val="{{ false }}">
+            <div ref="{{ deskLeaf }}" style="{{ leafStyle }}">{{ leafEl }}</div>
+          </sc-if>
+        </div>
+      </div>
+      <button type="button" onClick="{{ prev }}" style="position:absolute;left:26px;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;border:1px solid #E3E8EE;background:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 8px 20px -10px rgba(20,50,90,.3);transition:background .15s;" style-hover="background:#F4F8FB;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1B5FA8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+      </button>
+      <button type="button" onClick="{{ next }}" style="position:absolute;right:26px;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;border:1px solid #E3E8EE;background:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 8px 20px -10px rgba(20,50,90,.3);transition:background .15s;" style-hover="background:#F4F8FB;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1B5FA8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+
+    <div style="padding:16px;text-align:center;font:500 13px Lexend,sans-serif;color:#7C8A99;">{{ pageLabel }}</div>
+  </div>
+</div>
+
+<!-- ===================== MOBILE ===================== -->
+<div style="position:absolute;left:920px;top:130px;width:390px;">
+  <div data-drags-parent="1" style="position:absolute;top:-26px;left:2px;font:500 12px Lexend,sans-serif;color:#7C8A99;">Mobile · lecture au pouce</div>
+  <div style="width:390px;background:#fff;border-radius:46px;border:1px solid #E6EBF0;box-shadow:0 2px 8px rgba(20,40,70,.05);overflow:hidden;">
+
+    <div style="height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 28px 0 32px;">
+      <span style="font:600 15px Lexend,sans-serif;color:#1C2A3A;">9:41</span>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div style="display:flex;align-items:flex-end;gap:2px;height:11px;"><span style="width:3px;height:5px;background:#1C2A3A;border-radius:1px;"></span><span style="width:3px;height:7px;background:#1C2A3A;border-radius:1px;"></span><span style="width:3px;height:9px;background:#1C2A3A;border-radius:1px;"></span><span style="width:3px;height:11px;background:#1C2A3A;border-radius:1px;"></span></div>
+        <div style="width:23px;height:11px;border:1.5px solid #1C2A3A;border-radius:3px;padding:1.5px;display:flex;box-sizing:border-box;"><div style="flex:1;background:#1C2A3A;border-radius:1px;"></div></div>
+      </div>
+    </div>
+
+    <div style="padding:8px 20px 14px;border-bottom:1px solid #EEF2F6;">
+      <div style="display:flex;align-items:center;gap:7px;font:500 11.5px Lexend,sans-serif;color:#8A97A6;margin-bottom:8px;">
+        <a href="Espace%20Technico-commerciales%20Motival.dc.html" style="color:#8A97A6;text-decoration:none;">Technico-commerciales</a>
+        <span style="color:#BBC6D0;">›</span>
+        <span style="color:#1B5FA8;font-weight:600;">La découverte client</span>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+        <h1 style="font:600 17px/1.3 Lexend,sans-serif;color:#1C2A3A;margin:0;letter-spacing:-.01em;min-width:0;">La découverte client</h1>
+        <div style="display:flex;align-items:center;gap:8px;flex:none;">
+          <a href="Accueil%20Motival.dc.html" title="Fermer" style="flex:none;width:38px;height:38px;border-radius:10px;border:1px solid #E3E8EE;background:#fff;display:grid;place-items:center;text-decoration:none;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5A6A7A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12"/><path d="M18 6 6 18"/></svg></a>
+          <button type="button" onClick="{{ fullMob }}" style="width:38px;height:38px;border-radius:10px;border:1px solid #E3E8EE;background:#fff;display:grid;place-items:center;cursor:pointer;" style-hover="background:#F4F8FB;">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5A6A7A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M16 3h3a2 2 0 0 1 2 2v3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/><path d="M8 21H5a2 2 0 0 1-2-2v-3"/></svg>
+          </button>
+          <button type="button" style="width:38px;height:38px;border-radius:10px;border:none;background:#1B5FA8;display:grid;place-items:center;cursor:pointer;" style-hover="background:#164E8C;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M5 21h14"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div ref="{{ mobStage }}" style="position:relative;background:#ECF1F6;height:470px;display:flex;align-items:center;justify-content:center;">
+      <div style="perspective:1500px;">
+        <div style="position:relative;width:296px;height:418px;">
+          <div style="position:absolute;inset:0;">{{ baseEl }}</div>
+          <sc-if value="{{ isFlipping }}" hint-placeholder-val="{{ false }}">
+            <div ref="{{ mobLeaf }}" style="{{ leafStyle }}">{{ leafEl }}</div>
+          </sc-if>
+        </div>
+      </div>
+      <div onClick="{{ prev }}" style="position:absolute;left:0;top:0;bottom:0;width:34%;cursor:w-resize;"></div>
+      <div onClick="{{ next }}" style="position:absolute;right:0;top:0;bottom:0;width:34%;cursor:e-resize;"></div>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:center;gap:22px;padding:14px 0 18px;">
+      <button type="button" onClick="{{ prev }}" style="width:46px;height:46px;border-radius:50%;border:1px solid #E3E8EE;background:#fff;display:grid;place-items:center;cursor:pointer;" style-hover="background:#F4F8FB;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B5FA8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+      </button>
+      <span style="font:500 13px Lexend,sans-serif;color:#7C8A99;min-width:54px;text-align:center;">{{ pageLabel }}</span>
+      <button type="button" onClick="{{ next }}" style="width:46px;height:46px;border-radius:50%;border:1px solid #E3E8EE;background:#fff;display:grid;place-items:center;cursor:pointer;" style-hover="background:#F4F8FB;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B5FA8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { page: 0, flip: null };
+  deskStage = React.createRef();
+  mobStage = React.createRef();
+  deskLeaf = React.createRef();
+  mobLeaf = React.createRef();
+  _committing = false;
+  _anim = false;
+
+  pages = [
+    { cover: true, title: 'La découverte client', sub: 'Comprendre avant de convaincre — le socle de toute vente à valeur ajoutée.' },
+    { title: 'Pourquoi la découverte est décisive', body: [
+      "La phase de découverte conditionne tout le reste de l'entretien. C'est elle qui transforme une simple visite en une relation de conseil, où l'agriculteur se sent réellement écouté.",
+      "Sans découverte solide, l'argumentaire reste générique : on parle du produit plutôt que du besoin. À l'inverse, une découverte fine permet d'ajuster chaque recommandation à la réalité de l'exploitation." ] },
+    { title: 'Les quatre niveaux de questionnement', body: [
+      "On distingue les questions de situation, de problème, d'implication et de projection. Chacune fait progresser l'échange vers une prise de conscience partagée.",
+      "L'enjeu n'est pas d'enchaîner les questions, mais de doser : une bonne question ouverte vaut mieux que dix questions fermées posées à la suite." ] },
+    { title: "L'écoute active : les bons réflexes", figure: true, body: [
+      "Reformuler, laisser des silences, prendre des notes visibles : autant de signaux qui montrent à l'agriculteur que sa parole compte.",
+      "L'écoute active n'est pas une posture, c'est une discipline qui se travaille rendez-vous après rendez-vous." ] },
+    { title: 'Synthèse & passage à l\u2019action', body: [
+      "Reformulez les besoins prioritaires en fin d'entretien, puis validez-les explicitement avant de proposer une solution.",
+      "Cette synthèse partagée crée l'engagement : l'agriculteur valide le diagnostic avant même d'entendre votre offre." ] },
+  ];
+
+  renderPage(i) {
+    const h = React.createElement;
+    const p = this.pages[i];
+    const total = this.pages.length;
+    const num = h('div', { style: { position: 'absolute', bottom: '16px', left: 0, right: 0, textAlign: 'center', font: '500 11px Lexend,sans-serif', color: '#A6B1BE' } }, (i + 1) + ' / ' + total);
+    let inner;
+    if (p.cover) {
+      inner = h('div', { style: { height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '0 34px' } },
+        h('div', { key: 'c', style: { width: '56px', height: '56px', borderRadius: '15px', background: 'rgba(109,179,63,.16)', display: 'grid', placeItems: 'center', marginBottom: '24px' } }, h('span', { style: { width: '19px', height: '19px', borderRadius: '50%', background: '#6DB33F', display: 'block' } })),
+        h('div', { key: 'e', style: { font: '600 11px Lexend,sans-serif', letterSpacing: '.12em', color: '#5C9A33', marginBottom: '14px' } }, 'FORMATION À LA VENTE'),
+        h('h1', { key: 't', style: { font: '600 25px/1.3 Lexend,sans-serif', color: '#1C2A3A', margin: 0, letterSpacing: '-.01em' } }, p.title),
+        h('p', { key: 's', style: { font: '400 14px/1.65 Lexend,sans-serif', color: '#7C8A99', margin: '15px 0 0' } }, p.sub)
+      );
+    } else {
+      const blocks = [
+        h('div', { key: 'e', style: { font: '600 10.5px Lexend,sans-serif', letterSpacing: '.1em', color: '#5C9A33', marginBottom: '11px' } }, 'LA DÉCOUVERTE CLIENT'),
+        h('h2', { key: 't', style: { font: '600 19px/1.3 Lexend,sans-serif', color: '#1C2A3A', margin: '0 0 16px', letterSpacing: '-.01em' } }, p.title),
+      ];
+      p.body.forEach((para, idx) => blocks.push(h('p', { key: 'p' + idx, style: { font: '400 13px/1.7 Lexend,sans-serif', color: '#46566A', margin: '0 0 13px' } }, para)));
+      if (p.figure) blocks.push(h('div', { key: 'f', style: { height: '116px', borderRadius: '10px', background: 'repeating-linear-gradient(45deg,#E6EDF4 0 9px,#F0F4F8 9px 18px)', display: 'grid', placeItems: 'center', marginTop: '6px' } }, h('span', { style: { font: "500 11px 'Lexend',monospace", color: '#8499AC' } }, 'schéma')));
+      inner = h('div', { style: { padding: '34px 30px' } }, ...blocks);
+    }
+    return h('div', { style: { width: '100%', height: '100%', background: '#fff', borderRadius: '8px', overflow: 'hidden', position: 'relative', boxShadow: '0 22px 50px -24px rgba(20,50,90,.45)' } }, inner, num);
+  }
+
+  startFlip(dir) {
+    if (this.state.flip) return;
+    if (dir === 'next' && this.state.page >= this.pages.length - 1) return;
+    if (dir === 'prev' && this.state.page <= 0) return;
+    this.setState({ flip: { dir } });
+  }
+  next() { this.startFlip('next'); }
+  prev() { this.startFlip('prev'); }
+  componentDidUpdate() {
+    if (this.state.flip && !this._anim && !this._committing) {
+      this._anim = true;
+      const dir = this.state.flip.dir;
+      const target = dir === 'next' ? 'rotateY(-178deg)' : 'rotateY(178deg)';
+      const kf = [{ transform: 'rotateY(0deg)' }, { transform: target }];
+      const opts = { duration: 560, easing: 'cubic-bezier(.4,.1,.2,1)', fill: 'forwards' };
+      const nodes = [this.deskLeaf.current, this.mobLeaf.current].filter(Boolean);
+      if (nodes.length === 0) { this.commitFlip(); return; }
+      let done = false;
+      nodes.forEach(n => { const a = n.animate(kf, opts); a.onfinish = () => { if (done) return; done = true; this.commitFlip(); }; });
+    }
+  }
+  commitFlip() {
+    if (this._committing || !this.state.flip) return;
+    this._committing = true;
+    const dir = this.state.flip.dir;
+    this.setState(s => ({ page: dir === 'next' ? s.page + 1 : s.page - 1, flip: null }), () => { this._committing = false; this._anim = false; });
+  }
+  full(ref) {
+    const el = ref && ref.current;
+    if (el && el.requestFullscreen) el.requestFullscreen();
+  }
+
+  renderVals() {
+    const { page, flip } = this.state;
+    const dir = flip ? flip.dir : null;
+    const baseIndex = dir === 'next' ? page + 1 : dir === 'prev' ? page - 1 : page;
+    const leafStyle = flip ? {
+      position: 'absolute', inset: 0,
+      transformOrigin: dir === 'next' ? 'left center' : 'right center',
+      transform: 'rotateY(0deg)',
+      backfaceVisibility: 'hidden', borderRadius: '8px',
+      boxShadow: '0 22px 50px -24px rgba(20,50,90,.45)',
+    } : null;
+    return {
+      baseEl: this.renderPage(baseIndex),
+      leafEl: flip ? this.renderPage(page) : null,
+      leafStyle,
+      isFlipping: !!flip,
+      pageLabel: (page + 1) + ' / ' + this.pages.length,
+      next: () => this.next(),
+      prev: () => this.prev(),
+      deskLeaf: this.deskLeaf,
+      mobLeaf: this.mobLeaf,
+      fullDesk: () => this.full(this.deskStage),
+      fullMob: () => this.full(this.mobStage),
+    };
+  }
+}
+</script>
+</body>
+</html>
